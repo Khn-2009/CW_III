@@ -1,6 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 getgenv().InputText = nil
 getgenv().EquinoxCannon = nil
+getgenv().MagicWand = nil
 getgenv().VoidStar = nil
 getgenv().EquinoxSlicer = nil
 getgenv().FangM1 = nil
@@ -46,6 +47,17 @@ local Button = Tab_I:CreateButton({
    Callback = function()
    print("To Use Fang M1 and Pickaxe, make sure you have them and hold them then click 2-3 then unhold and click the function, to stop a function, equipped it weapon.")
    end,
+})
+
+local Button = Tab_I:CreateButton({
+   Name = "Place Dummy",
+   Callback = function()
+local args = {
+    [1] = "place"
+}
+
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Training Dummy").RemoteFunction:InvokeServer(unpack(args))
+end,
 })
 
 local Toggle = Tab_I:CreateToggle({
